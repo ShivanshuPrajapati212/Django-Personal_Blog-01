@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset and general styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 20px 0;
+            background-color: #1a1a1a; /* Blue-violet background */
+            color: #fff;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .post {
+            background-color: #292929; /* Darker background for posts */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #e0e0e0; /* Light text */
+        }
+        .post .meta {
+            font-size: 1;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+        .post .content {
+            font-size: 20px;
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .back-link a {
+            text-decoration: none;
+            color: #5C3D8E; /* Blue-violet color */
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+        .back-link a i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ post.title }}</h1>
+    </header>
+    <div class="container">
+        <div class="post">
+            <div class="meta">
+                <span><i class="far fa-user"></i> {{ post.author }}</span>
+                <span><i class="far fa-calendar-alt"></i> {{ post.created_date|date:"F d, Y" }}</span>
+            </div>
+            <div class="content">
+                <p>{{ post.content }}</p>
+            </div>
+        </div>
+        <div class="back-link">
+            <a href="{% url 'index' %}">
+                <i class="fas fa-chevron-left"></i> Back to Blog
+            </a>
+        </div>
+    </div>
+</body>
+</html>
